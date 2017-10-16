@@ -1,0 +1,28 @@
+﻿@model ScoreKeeperWithAuth.Models.Player
+
+<h1>@Model.Name</h1>
+<p class="small">(ID: @Model.ID)</p>
+
+<form asp-action="AddScore" asp-controller="Player" asp-route-id="@Model.ID">
+    <input type="number" name="Value" id="Value" />
+    <input type="submit" value="Add Score" />
+</form>
+
+<h3>Scores</h3>
+<table>
+    <tr>
+        <th>Total:</th>
+        <td>@Model.TotalScore</td>
+    </tr>
+    <tr>
+        <th>Average: &nbsp;</th>
+        <td>@Model.AverageScore</td>
+    </tr>
+</table>
+<br />
+<ul>
+    @foreach(var score in Model.Scores)
+    {
+        <li>@score.Value</li>
+    }
+</ul>

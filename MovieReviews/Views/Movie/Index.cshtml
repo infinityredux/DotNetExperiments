@@ -1,0 +1,13 @@
+﻿@model List<MovieReviews.Models.Movie>
+
+<h1>Movie Reviewer</h1>
+<hr/>
+
+<a asp-action="Create" asp-controller="Movie">Add Movie to List</a>
+
+<ul>
+@foreach (var movie in Model)
+{
+    <li>@movie.Name (@movie.Rating) <a asp-action="Create" asp-controller="Review" asp-route-moviename="@movie.Name">Add Review</a></li>
+}
+</ul>

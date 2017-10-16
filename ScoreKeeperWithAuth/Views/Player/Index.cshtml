@@ -1,0 +1,16 @@
+﻿@model List<ScoreKeeperWithAuth.Models.Player>
+@{
+    ViewData["Title"] = "ScoreKeeper";
+}
+
+<h1>ScoreKeeper</h1>
+
+<a asp-action="Create" asp-controller="Player">Create new player</a>
+
+<h3>Players</h3>
+<ul>
+    @foreach( var player in Model)
+    {
+        <li><a asp-action="Details" asp-controller="Player" asp-route-id="@player.ID">@player.Name</a></li>
+    }
+</ul>
