@@ -33,7 +33,19 @@ namespace ContosoUniversity.Models
 
         // -----
 
-        public ICollection<CourseAssignment> CourseAssignments { get; set; }
+        private ICollection<CourseAssignment> _courseAssignments;
+        public ICollection<CourseAssignment> CourseAssignments
+        {
+            get
+            {
+                return _courseAssignments ?? (_courseAssignments = new List<CourseAssignment>());
+            }
+            set
+            {
+                _courseAssignments = value;
+            }
+        }
+
         public OfficeAssignment OfficeAssignment { get; set; }
     }
 }
